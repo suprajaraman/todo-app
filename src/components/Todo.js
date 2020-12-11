@@ -1,15 +1,25 @@
-import React, {useState} from 'react'
+import React, { useState } from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faTrash, faEdit, faCheck } from '@fortawesome/free-solid-svg-icons'
+
+import ThrowConfetti from './ThrowConfetti'
+
 const Todo = ({ todo, id, setTodos, todos, checked }) => {
       const [edit, setEdit] = useState(false)
+      const [confetti, setConfetti] = useState(false)
+      const [modal, setModal] = useState()
+      const { width, height } = window.screen   
       const checkedHandler = () => {
             setTodos(todos.map((todo) => {
                   if (todo.id === id) {
                         return {...todo, checked: !todo.checked}
                   }
                   return todo
-      }))
+            }
+            ))
+            if (!checked) {
+                  confettiHandler()
+            }
       }
       const deleteHandler = () => {
             setTodos(todos.filter((todo) => (
@@ -31,16 +41,34 @@ const Todo = ({ todo, id, setTodos, todos, checked }) => {
             e.preventDefault()
             setEdit(!edit)
       }
+      const confettiHandler = () => {
+            setConfetti(true)
+            setTimeout(function () {
+                   setConfetti(confetti)
+            }, 3000)
+      }
       return (
-            edit ? (<form onSubmit={onSubmitHandler} className="todo todo__edit"><input type="text" value={todo} onChange={onChangeHandler} /><button className="save-btn">SAVE</button></form>) : <div className= {`todo ${checked ? 'checked' : ''}`} >
+            edit ? (<form onSubmit={onSubmitHandler} className="todo todo__edit"><input type="text" value={todo} onChange={onChangeHandler} /><button className="save-btn">SAVE</button></form>) : <><div className= {`todo ${checked ? 'checked' : ''}`} >
             
                   <li>{todo} {todo.checked}</li>
                   <span>
-                  <button onClick = {checkedHandler}><FontAwesomeIcon className = "icon icon__check" icon={faCheck} size='2x' /></button>
+                  <button onClick = {checkedHandler}><FontAwesomeIcon className = "icon icon__check" icon={faCheck} size='2x'/></button>
                   <button onClick={deleteHandler}><FontAwesomeIcon className = "icon icon__trash" icon={faTrash} size='2x'/></button>
-                        <button onClick={editHandler}><FontAwesomeIcon className = "icon icon__edit" icon={faEdit} size='2x'/></button> </span>            
-      </div>
+                        <button onClick={editHandler}><FontAwesomeIcon className="icon icon__edit" icon={faEdit} size='2x' /></button> </span>    
+                          
+            </div>
+            <ThrowConfetti confetti={confetti}/>  
+            </>
       )
 }
 
 export default Todo
+
+// {confetti && <Confetti
+//       width={width}
+//       height={height}
+//       tweenDuration={7000}
+//       recycle={false}
+//       numberOfPieces={2000}
+//       initialVelocityY={10}
+// />}
