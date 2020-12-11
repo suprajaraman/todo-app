@@ -1,9 +1,14 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import Todo from './Todo'
 import Form from '../components/Form'
 
 const TodoList = () => {
-      const [todos, setTodos] = useState([])
+      const [todos, setTodos] = useState(JSON.parse(localStorage.getItem('todos')))
+
+      useEffect(() => {
+            localStorage.setItem('todos', JSON.stringify(todos))
+      }, [todos])
+      
       return (
             <div>
                   
