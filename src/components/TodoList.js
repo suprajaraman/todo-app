@@ -3,8 +3,8 @@ import Todo from './Todo'
 import Form from '../components/Form'
 
 const TodoList = () => {
-      const [todos, setTodos] = useState
-      (JSON.parse(localStorage.getItem('todos')))
+      const data = JSON.parse(localStorage.getItem('todos')) || []
+      const [todos, setTodos] = useState(data)
 
       useEffect(() => {
             localStorage.setItem('todos', JSON.stringify(todos))
