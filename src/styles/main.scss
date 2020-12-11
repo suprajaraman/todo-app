@@ -116,12 +116,29 @@ input[type="text"] {
   }
 }
 
+.errorPage {
+  text-align: center;
+  h1 {
+    margin: 4rem auto 3rem;
+    font-size: 3rem;
+  }
+  a {
+    color: var(--color-secondary);
+  }
+  .error-svg {
+    width: 40vw;
+    display: block;
+    margin: 5rem auto;
+  }
+}
+
 //utils
 
 .checked {
   text-decoration: line-through;
   opacity: 90%;
 }
+
 .error {
   border: 3px solid var(--color-red) !important;
   animation: error 5s 1;
@@ -134,11 +151,11 @@ input[type="text"] {
   margin: auto;
   background-color: var(--color-primary);
   color: var(--color-secondary);
-  border: 3px solid var(--color-green);
-  border-radius: 5px;
-  padding: 2.5rem;
+  border: 3px solid var(--color-secondary);
+  border-radius: 15px;
+  padding: 4rem 6rem;
   z-index: 2;
-  font-size: 1.2rem;
+  font-size: 1.6rem;
   position: absolute;
   top: 50%;
   left: 50%;
@@ -146,16 +163,6 @@ input[type="text"] {
   font-weight: 400;
 }
 
-.errorPage {
-  text-align: center;
-  h1 {
-    margin: 6rem auto 3rem;
-    font-size: 3rem;
-  }
-  a {
-    color: var(--color-secondary);
-  }
-}
 //for small screens
 
 @media (max-width: 690px) {
@@ -164,5 +171,13 @@ input[type="text"] {
   }
   .new-todo-form {
     width: 80%;
+  }
+  .errorPage {
+    h1 {
+      font-size: 2rem;
+    }
+    .error-svg {
+      width: 60vw;
+    }
   }
 }

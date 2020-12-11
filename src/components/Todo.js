@@ -7,8 +7,6 @@ import ThrowConfetti from './ThrowConfetti'
 const Todo = ({ todo, id, setTodos, todos, checked }) => {
       const [edit, setEdit] = useState(false)
       const [confetti, setConfetti] = useState(false)
-      const [modal, setModal] = useState()
-      const { width, height } = window.screen   
       const checkedHandler = () => {
             setTodos(todos.map((todo) => {
                   if (todo.id === id) {
