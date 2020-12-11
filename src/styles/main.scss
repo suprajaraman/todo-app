@@ -14,7 +14,6 @@ body {
   background-color: var(--color-primary);
   color: var(--color-secondary);
   font-family: "Open Sans", sans-serif;
-  min-height: 100vh;
   transition: all 0.5s ease;
 }
 
@@ -62,7 +61,7 @@ input[type="text"] {
     height: 100%;
     padding: 0.5rem;
     border-radius: 100px;
-    background-color: #0a57ca;
+    background-color: var(--color-blue);
   }
   label {
     font-size: 1.2rem;
@@ -117,11 +116,11 @@ input[type="text"] {
   }
 }
 
-//utility classes
+//utils
 
 .checked {
   text-decoration: line-through;
-  opacity: 50%;
+  opacity: 90%;
 }
 .error {
   border: 3px solid var(--color-red) !important;
@@ -131,6 +130,32 @@ input[type="text"] {
   }
 }
 
+.modal {
+  margin: auto;
+  background-color: var(--color-primary);
+  color: var(--color-secondary);
+  border: 3px solid var(--color-green);
+  border-radius: 5px;
+  padding: 2.5rem;
+  z-index: 2;
+  font-size: 1.2rem;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-weight: 400;
+}
+
+.errorPage {
+  text-align: center;
+  h1 {
+    margin: 6rem auto 3rem;
+    font-size: 3rem;
+  }
+  a {
+    color: var(--color-secondary);
+  }
+}
 //for small screens
 
 @media (max-width: 690px) {
