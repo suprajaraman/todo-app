@@ -92,7 +92,7 @@ input[type="text"] {
     box-shadow: 1px 3px 4px 0px rgba(19, 9, 9, 0.25);
 
     .save-btn {
-      width: 10%;
+      width: 100%;
       background-color: var(--color-blue);
       color: var(--color-gray);
     }
@@ -154,7 +154,6 @@ input[type="text"] {
   border: 3px solid var(--color-secondary);
   border-radius: 15px;
   padding: 4rem 6rem;
-  z-index: 2;
   font-size: 1.6rem;
   position: absolute;
   top: 50%;
@@ -179,5 +178,9 @@ input[type="text"] {
     .error-svg {
       width: 60vw;
     }
+  }
+  .modal {
+    padding: 1.3rem 2rem;
+    font-size: 1.3rem;
   }
 }
