@@ -136,7 +136,7 @@ input[type="text"] {
 
 .checked {
   text-decoration: line-through;
-  opacity: 90%;
+  background-color: var(--color-gray);
 }
 
 .error {
