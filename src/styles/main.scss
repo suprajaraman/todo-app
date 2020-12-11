@@ -21,8 +21,9 @@ body {
 h1 {
   font-size: 2.3rem;
   text-align: center;
-  margin: 3rem;
+  margin: 5rem 0 3rem 0;
 }
+
 button {
   border: none;
   cursor: pointer;
@@ -33,6 +34,7 @@ button {
     transform: scale(0.9);
   }
 }
+
 input[type="text"] {
   border: none;
   &:focus {
@@ -42,35 +44,38 @@ input[type="text"] {
   font-family: "Open Sans", sans-serif;
   height: 100%;
   border: 0.5px solid var(--color-blue);
-  width: 90%;
+  width: 70%;
   font-size: 1.2rem;
   padding: 0.3rem;
 }
 
 .new-todo-form {
-  height: 3rem;
   width: 40vw;
   display: flex;
   flex-wrap: wrap;
-  margin: 3rem auto;
+  margin: 3rem auto 3rem;
+  input {
+    margin: auto;
+    width: 80%;
+  }
   button {
     height: 100%;
     padding: 0.5rem;
-    margin: 0 0.3rem;
     border-radius: 100px;
     background-color: #0a57ca;
   }
   label {
     font-size: 1.2rem;
     min-width: 100%;
-    margin: 0 0 0.5rem 0;
+    text-align: center;
+    margin: 0 0 1rem 0;
   }
 }
 
 .todo {
   background-color: var(--color-gray);
   margin: 1rem auto;
-  width: 45%;
+  width: 35%;
   display: flex;
   justify-content: space-between;
   padding: 1rem;
@@ -95,6 +100,7 @@ input[type="text"] {
   }
 }
 
+//icon colors
 .icon {
   margin: 0 0.3rem;
   &__check {
@@ -110,7 +116,28 @@ input[type="text"] {
     color: var(--color-gray);
   }
 }
+
+//utility classes
+
 .checked {
   text-decoration: line-through;
   opacity: 50%;
+}
+.error {
+  border: 3px solid var(--color-red) !important;
+  animation: error 5s 1;
+  &--msg {
+    margin: 0.5rem 3rem;
+  }
+}
+
+//for small screens
+
+@media (max-width: 690px) {
+  .todo {
+    width: 80%;
+  }
+  .new-todo-form {
+    width: 80%;
+  }
 }
