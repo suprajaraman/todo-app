@@ -6,7 +6,7 @@ const ThrowConfetti = ({ confetti }) => {
       const { width, height } = window.screen
       return (
             <span className="confetti">
-                  {confetti && <>
+                  {confetti ? <>
                         <Confetti
                         width={width}
                         height={height}
@@ -15,7 +15,7 @@ const ThrowConfetti = ({ confetti }) => {
                         tweenDuration = {3000}
                               />
                               <Modal />
-                        </>}
+                        </> : null}
             </span>
       )
 }
