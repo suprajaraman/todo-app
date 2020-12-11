@@ -22,8 +22,3 @@ const ThrowConfetti = ({ confetti }) => {
 
 export default ThrowConfetti
 
-
-// const confettiHandler = () => {
-//       s
-// }
-// onClick = {confettiHandler}

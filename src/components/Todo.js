@@ -46,7 +46,7 @@ const Todo = ({ todo, id, setTodos, todos, checked }) => {
             }, 3000)
       }
       return (
-            edit ? (<form onSubmit={onSubmitHandler} className="todo todo__edit"><input type="text" value={todo} onChange={onChangeHandler} /><button className="save-btn">SAVE</button></form>) : <><div className= {`todo ${checked ? 'checked' : ''}`} >
+            edit ? (<form onSubmit={onSubmitHandler} className="todo todo__edit"><input type="text" value={todo} onChange={onChangeHandler} /><button className="save-btn">SAVE</button></form>) : (<><div className= {`todo ${checked ? 'checked' : ''}`} >
             
                   <li>{todo} {todo.checked}</li>
                   <span>
@@ -56,17 +56,8 @@ const Todo = ({ todo, id, setTodos, todos, checked }) => {
                           
             </div>
             <ThrowConfetti confetti={confetti}/>  
-            </>
+            </>)
       )
 }
 
 export default Todo
-
-// {confetti && <Confetti
-//       width={width}
-//       height={height}
-//       tweenDuration={7000}
-//       recycle={false}
-//       numberOfPieces={2000}
-//       initialVelocityY={10}
-// />}
