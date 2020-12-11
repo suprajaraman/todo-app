@@ -1,6 +1,7 @@
 import React, {useState} from 'react'
-
-const Todo = ({ todo, id, setTodos, todos }) => {
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faTrash, faEdit, faCheck } from '@fortawesome/free-solid-svg-icons'
+const Todo = ({ todo, id, setTodos, todos, checked }) => {
       const [edit, setEdit] = useState(false)
       const checkedHandler = () => {
             setTodos(todos.map((todo) => {
@@ -14,8 +15,6 @@ const Todo = ({ todo, id, setTodos, todos }) => {
             setTodos(todos.filter((todo) => (
                   todo.id !== id
             )))
-            console.log(todos)
-            console.log(id)
       }
       const editHandler = () => {
             setEdit(!edit)
@@ -30,16 +29,17 @@ const Todo = ({ todo, id, setTodos, todos }) => {
       }
       const onSubmitHandler = (e) => {
             e.preventDefault()
-            console.log("submitted")
             setEdit(!edit)
       }
       return (
-            edit ? (<form onSubmit = {onSubmitHandler}><input type="text" value={todo} onChange={onChangeHandler}/><button>Save</button></form>) : <>
-            <li>{todo}</li>
-            <button onClick = {checkedHandler}>CHECK</button>
-            <button onClick={deleteHandler}>DELETE</button>
-            <button onClick = {editHandler}>Edit</button>      
-      </>
+            edit ? (<form onSubmit={onSubmitHandler} className="todo todo__edit"><input type="text" value={todo} onChange={onChangeHandler} /><button className="save-btn">SAVE</button></form>) : <div className= {`todo ${checked ? 'checked' : ''}`} >
+            
+                  <li>{todo} {todo.checked}</li>
+                  <span>
+                  <button onClick = {checkedHandler}><FontAwesomeIcon className = "icon icon__check" icon={faCheck} size='2x' /></button>
+                  <button onClick={deleteHandler}><FontAwesomeIcon className = "icon icon__trash" icon={faTrash} size='2x'/></button>
+                        <button onClick={editHandler}><FontAwesomeIcon className = "icon icon__edit" icon={faEdit} size='2x'/></button> </span>            
+      </div>
       )
 }
 

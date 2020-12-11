@@ -1,10 +1,11 @@
 import React from 'react'
 
 const Header = () => {
+
       return (
-            <div>
-                  HEADER
-            </div>
+            <header>
+                  <h1>My tasks</h1>
+            </header>
       )
 }
 

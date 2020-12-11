@@ -1,0 +1,116 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  --color-primary: #252732;
+  --color-secondary: #ffffff;
+  --color-gray: #f0f2fa;
+  --color-blue: #0a57ca;
+  --color-red: #da3a3a;
+  --color-green: #06d6a0;
+}
+
+body {
+  background-color: var(--color-primary);
+  color: var(--color-secondary);
+  font-family: "Open Sans", sans-serif;
+  min-height: 100vh;
+  transition: all 0.5s ease;
+}
+
+h1 {
+  font-size: 2.3rem;
+  text-align: center;
+  margin: 3rem;
+}
+button {
+  border: none;
+  cursor: pointer;
+  &:focus {
+    outline: none;
+  }
+  &:active {
+    transform: scale(0.9);
+  }
+}
+input[type="text"] {
+  border: none;
+  &:focus {
+    outline: none;
+  }
+  color: var(--color-primary);
+  font-family: "Open Sans", sans-serif;
+  height: 100%;
+  border: 0.5px solid var(--color-blue);
+  width: 90%;
+  font-size: 1.2rem;
+  padding: 0.3rem;
+}
+
+.new-todo-form {
+  height: 3rem;
+  width: 40vw;
+  display: flex;
+  flex-wrap: wrap;
+  margin: 3rem auto;
+  button {
+    height: 100%;
+    padding: 0.5rem;
+    margin: 0 0.3rem;
+    border-radius: 100px;
+    background-color: #0a57ca;
+  }
+  label {
+    font-size: 1.2rem;
+    min-width: 100%;
+    margin: 0 0 0.5rem 0;
+  }
+}
+
+.todo {
+  background-color: var(--color-gray);
+  margin: 2rem auto;
+  width: 45%;
+  display: flex;
+  justify-content: space-between;
+  padding: 1rem;
+  font-size: 1.2rem;
+  font-weight: 600;
+  border-radius: 10px;
+  box-shadow: 1px 3px 4px 0px rgba(107, 94, 94, 0.25);
+  color: var(--color-primary);
+  li {
+    list-style-type: none;
+  }
+
+  &__edit {
+    transform: scale(1.05);
+    box-shadow: 1px 3px 4px 0px rgba(19, 9, 9, 0.25);
+
+    .save-btn {
+      width: 10%;
+      background-color: var(--color-blue);
+      color: var(--color-gray);
+    }
+  }
+}
+
+.icon {
+  margin: 0 0.3rem;
+  &__check {
+    color: var(--color-green);
+  }
+  &__trash {
+    color: var(--color-red);
+  }
+  &__edit {
+    color: var(--color-blue);
+  }
+  &__add {
+    color: var(--color-gray);
+  }
+}
+.checked {
+  text-decoration: line-through;
+  opacity: 50%;
+}

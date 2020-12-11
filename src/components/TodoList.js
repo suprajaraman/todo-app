@@ -6,12 +6,12 @@ const TodoList = () => {
       const [todos, setTodos] = useState([])
       return (
             <div>
-                  TODOLIST
+                  
                   <Form todos={todos} setTodos={setTodos} />
                   <ul>
                         {todos.map((todo) => (
                              
-                              <Todo key={todo.id} todo={todo.task} id={todo.id} setTodos={setTodos} todos={todos}/>
+                              <Todo key={todo.id} todo={todo.task} id={todo.id} checked={todo.checked} setTodos={setTodos} todos={todos}/>
                               
                         ))}
                         </ul>
