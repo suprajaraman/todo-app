@@ -13,7 +13,7 @@ const FORM = ({todos, setTodos}) => {
       }
       const onSubmitHandler = (e) => {
             e.preventDefault()
-            if (newTodo === '') {
+            if (newTodo.trim() === '') {
                   setInputError(true)
             }
             else {
